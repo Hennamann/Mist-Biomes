@@ -7,7 +7,7 @@ import net.minecraft.world.biome.Biome;
 public class BiomeMistForest extends Biome implements IBiomeMist {
 
     public BiomeMistForest() {
-        super(new BiomeProperties("MistForest").setTemperature(0.7F).setRainfall(0.8F));
+        super(new BiomeProperties("Mist Forest").setTemperature(0.7F).setRainfall(0.8F));
         this.decorator.treesPerChunk = 10;
         this.decorator.grassPerChunk = 2;
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));

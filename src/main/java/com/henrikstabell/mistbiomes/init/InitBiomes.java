@@ -1,6 +1,8 @@
 package com.henrikstabell.mistbiomes.init;
 
+import com.henrikstabell.mistbiomes.content.biomes.BiomeMistDesert;
 import com.henrikstabell.mistbiomes.content.biomes.BiomeMistForest;
+import com.henrikstabell.mistbiomes.content.biomes.BiomeMistPlains;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
@@ -12,9 +14,13 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 public class InitBiomes {
 
     public static final Biome MISTFOREST = new BiomeMistForest();
+    public static final Biome MISTPLAINS = new BiomeMistPlains();
+    public static final Biome MISTDESERT = new BiomeMistDesert();
 
     public static void registerBiome() {
         initBiome(MISTFOREST, "MistForest", BiomeType.WARM, Type.FOREST);
+        initBiome(MISTPLAINS, "MistPlains", BiomeType.WARM, Type.PLAINS);
+        initBiome(MISTDESERT, "MistDesert", BiomeType.DESERT, Type.DEAD, Type.DRY, Type.SANDY);
     }
 
     private static Biome initBiome(Biome biome, String name, BiomeType biomeType, Type... types) {
