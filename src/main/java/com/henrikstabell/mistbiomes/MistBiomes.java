@@ -1,6 +1,9 @@
 package com.henrikstabell.mistbiomes;
 
 import com.henrikstabell.mistbiomes.init.InitBiomes;
+import net.minecraft.init.Biomes;
+import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -24,5 +27,5 @@ public class MistBiomes
     }
 
     @EventHandler
-    public void postInit(FMLPostInitializationEvent postEvent) { }
+    public void postInit(FMLPostInitializationEvent postEvent) {}
 }
