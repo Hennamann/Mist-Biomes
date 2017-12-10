@@ -22,7 +22,7 @@ public class BiomeMistSwamp extends Biome implements IBiomeMist {
     protected static final IBlockState WATER_LILY = Blocks.WATERLILY.getDefaultState();
 
     public BiomeMistSwamp() {
-        super(new BiomeProperties("Mist Swamp").setBaseHeight(-0.2F).setHeightVariation(0.1F).setTemperature(0.8F).setRainfall(0.9F).setWaterColor(14745518));
+        super(new BiomeProperties("Misty Swampland").setBaseHeight(-0.2F).setHeightVariation(0.1F).setTemperature(0.8F).setRainfall(0.9F).setWaterColor(14745518));
         this.decorator.treesPerChunk = 2;
         this.decorator.flowersPerChunk = 1;
         this.decorator.deadBushPerChunk = 1;

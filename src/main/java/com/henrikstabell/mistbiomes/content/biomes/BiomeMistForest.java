@@ -1,6 +1,7 @@
 package com.henrikstabell.mistbiomes.content.biomes;
 
 import com.henrikstabell.mistcore.api.IBiomeMist;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.world.biome.Biome;
 
@@ -11,6 +12,7 @@ public class BiomeMistForest extends Biome implements IBiomeMist {
         this.decorator.treesPerChunk = 10;
         this.decorator.grassPerChunk = 2;
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 5, 4, 4));
+        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityZombie.class, 20, 8, 16));
     }
 
     @Override

@@ -13,15 +13,15 @@ import net.minecraft.world.gen.feature.*;
 
 import java.util.Random;
 
-public class BiomeMistTaiga extends Biome implements IBiomeMist {
+public class BiomeColdMistTaiga extends Biome implements IBiomeMist {
 
     private static final WorldGenTaiga1 PINE_GENERATOR = new WorldGenTaiga1();
     private static final WorldGenTaiga2 SPRUCE_GENERATOR = new WorldGenTaiga2(false);
 
-    public BiomeMistTaiga() {
-        super(new BiomeProperties("Mist Taiga").setBaseHeight(0.2F).setHeightVariation(0.2F).setTemperature(0.25F).setRainfall(0.8F));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 8, 4, 4));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityRabbit.class, 4, 2, 3));
+    public BiomeColdMistTaiga() {
+        super(new BiomeProperties("Snowy Mist Taiga").setBaseHeight(0.2F).setHeightVariation(0.2F).setTemperature(-0.5F).setRainfall(0.4F).setSnowEnabled());
+        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityWolf.class, 8, 4, 4));
+        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
         this.decorator.treesPerChunk = 10;
     }
 
