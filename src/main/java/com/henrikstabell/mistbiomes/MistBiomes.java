@@ -23,7 +23,7 @@ public class MistBiomes
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        InitBiomes.registerBiome();
+        InitBiomes.registerBiomes();
     }
 
     @EventHandler
