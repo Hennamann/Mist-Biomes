@@ -21,26 +21,36 @@ public class InitBiomes {
     public static final Biome MISTMUSHROOMISLAND = new BiomeMistMushroomIsland();
 
     public static void registerBiomes() {
-        if (MistBiomesConfig.mistForestEnabled) {
             initBiome(MISTFOREST, "MistForest", BiomeType.WARM, Type.FOREST);
+            initBiome(MISTPLAINS, "MistPlains", BiomeType.WARM, Type.PLAINS);
+            initBiome(MISTTAIGA, "MistTaiga", BiomeType.COOL, Type.COLD, Type.CONIFEROUS, Type.FOREST);
+            initBiome(MISTDESERT, "MistDesert", BiomeType.DESERT, Type.HOT, Type.DRY, Type.SANDY);
+            initBiome(COLDMISTTAIGA, "ColdMistTaiga", BiomeType.ICY, Type.CONIFEROUS, Type.FOREST, Type.SNOWY);
+            initBiome(MISTSWAMPLAND, "MistSwamp", BiomeType.WARM, Type.WET, Type.SWAMP);
+            initBiome(MISTMUSHROOMISLAND, "MistyMushroomIsland", BiomeType.COOL, Type.MUSHROOM, Type.RARE);
+    }
+
+    public static void addBiomes() {
+        if (MistBiomesConfig.mistForestEnabled) {
+            addBiome(MISTFOREST);
         }
         if (MistBiomesConfig.mistPlainsEnabled) {
-            initBiome(MISTPLAINS, "MistPlains", BiomeType.WARM, Type.PLAINS);
+            addBiome(MISTPLAINS);
         }
         if (MistBiomesConfig.mistTaigaEnabled) {
-            initBiome(MISTTAIGA, "MistTaiga", BiomeType.COOL, Type.COLD, Type.CONIFEROUS, Type.FOREST);
+            addBiome(MISTTAIGA);
         }
         if (MistBiomesConfig.mistDesertEnabled) {
-            initBiome(MISTDESERT, "MistDesert", BiomeType.DESERT, Type.HOT, Type.DRY, Type.SANDY);
+            addBiome(MISTDESERT);
         }
         if (MistBiomesConfig.coldMistTaigaEnabled) {
-            initBiome(COLDMISTTAIGA, "ColdMistTaiga", BiomeType.ICY, Type.CONIFEROUS, Type.FOREST, Type.SNOWY);
+            addBiome(COLDMISTTAIGA);
         }
         if (MistBiomesConfig.mistySwamplandsEnabled) {
-            initBiome(MISTSWAMPLAND, "MistSwamp", BiomeType.WARM, Type.WET, Type.SWAMP);
+            addBiome(MISTSWAMPLAND);
         }
         if (MistBiomesConfig.mistyMushroomIslandsEnabled) {
-            initBiome(MISTMUSHROOMISLAND, "MistyMushroomIsland", BiomeType.COOL, Type.MUSHROOM, Type.RARE);
+            addBiome(MISTMUSHROOMISLAND);
         }
     }
 
@@ -49,6 +59,10 @@ public class InitBiomes {
         ForgeRegistries.BIOMES.register(biome);
         BiomeDictionary.addTypes(biome, types);
         BiomeManager.addBiome(biomeType, new BiomeEntry(biome, 10));
+        return biome;
+    }
+
+    private static Biome addBiome(Biome biome) {
         BiomeManager.addSpawnBiome(biome);
         return biome;
     }
