@@ -43,6 +43,11 @@ public class MistBiomesConfig {
     @Config.RequiresMcRestart
     public static boolean mistySwamplandsEnabled = true;
 
+    @Config.Name("Misty Mushroom Islands")
+    @Config.Comment("Should the Misty Mushroom Islands biome be enabled or disabled?")
+    @Config.RequiresMcRestart
+    public static boolean mistyMushroomIslandsEnabled = true;
+
     @Config.Name("Mist Density")
     @Config.Comment("How much mist should the mist biomes have?")
     public static float mistDensity = 0.1F;

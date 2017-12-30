@@ -18,6 +18,7 @@ public class InitBiomes {
     public static final Biome COLDMISTTAIGA = new BiomeColdMistTaiga();
     public static final Biome MISTTAIGA = new BiomeMistTaiga();
     public static final Biome MISTSWAMPLAND = new BiomeMistSwamp();
+    public static final Biome MISTMUSHROOMISLAND = new BiomeMistMushroomIsland();
 
     public static void registerBiomes() {
         if (MistBiomesConfig.mistForestEnabled) {
@@ -27,16 +28,19 @@ public class InitBiomes {
             initBiome(MISTPLAINS, "MistPlains", BiomeType.WARM, Type.PLAINS);
         }
         if (MistBiomesConfig.mistTaigaEnabled) {
-            initBiome(MISTTAIGA, "MistTaiga", BiomeType.WARM, Type.FOREST);
+            initBiome(MISTTAIGA, "MistTaiga", BiomeType.COOL, Type.COLD, Type.CONIFEROUS, Type.FOREST);
         }
         if (MistBiomesConfig.mistDesertEnabled) {
-            initBiome(MISTDESERT, "MistDesert", BiomeType.DESERT, Type.DEAD, Type.DRY, Type.SANDY);
+            initBiome(MISTDESERT, "MistDesert", BiomeType.DESERT, Type.HOT, Type.DRY, Type.SANDY);
         }
         if (MistBiomesConfig.coldMistTaigaEnabled) {
-            initBiome(COLDMISTTAIGA, "ColdMistTaiga", BiomeType.ICY, Type.COLD, Type.FOREST, Type.SNOWY);
+            initBiome(COLDMISTTAIGA, "ColdMistTaiga", BiomeType.ICY, Type.CONIFEROUS, Type.FOREST, Type.SNOWY);
         }
         if (MistBiomesConfig.mistySwamplandsEnabled) {
-            initBiome(MISTSWAMPLAND, "MistSwamp", BiomeType.WARM, Type.DEAD, Type.CONIFEROUS, Type.LUSH, Type.SWAMP, Type.SPOOKY);
+            initBiome(MISTSWAMPLAND, "MistSwamp", BiomeType.WARM, Type.WET, Type.SWAMP);
+        }
+        if (MistBiomesConfig.mistyMushroomIslandsEnabled) {
+            initBiome(MISTMUSHROOMISLAND, "MistyMushroomIsland", BiomeType.COOL, Type.MUSHROOM, Type.RARE);
         }
     }
 
