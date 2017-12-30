@@ -1,5 +1,6 @@
 package com.henrikstabell.mistbiomes.init;
 
+import com.henrikstabell.mistbiomes.client.config.MistBiomesConfig;
 import com.henrikstabell.mistbiomes.content.biomes.*;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
@@ -19,12 +20,24 @@ public class InitBiomes {
     public static final Biome MISTSWAMPLAND = new BiomeMistSwamp();
 
     public static void registerBiomes() {
-        initBiome(MISTFOREST, "MistForest", BiomeType.WARM, Type.FOREST);
-        initBiome(MISTPLAINS, "MistPlains", BiomeType.WARM, Type.PLAINS);
-        initBiome(MISTTAIGA, "MistTaiga", BiomeType.WARM, Type.FOREST);
-        initBiome(MISTDESERT, "MistDesert", BiomeType.DESERT, Type.DEAD, Type.DRY, Type.SANDY);
-        initBiome(COLDMISTTAIGA, "ColdMistTaiga", BiomeType.ICY, Type.COLD, Type.FOREST, Type.SNOWY);
-        initBiome(MISTSWAMPLAND, "MistSwamp", BiomeType.WARM, Type.DEAD, Type.CONIFEROUS, Type.LUSH, Type.SWAMP, Type.SPOOKY);
+        if (MistBiomesConfig.mistForestEnabled) {
+            initBiome(MISTFOREST, "MistForest", BiomeType.WARM, Type.FOREST);
+        }
+        if (MistBiomesConfig.mistPlainsEnabled) {
+            initBiome(MISTPLAINS, "MistPlains", BiomeType.WARM, Type.PLAINS);
+        }
+        if (MistBiomesConfig.mistTaigaEnabled) {
+            initBiome(MISTTAIGA, "MistTaiga", BiomeType.WARM, Type.FOREST);
+        }
+        if (MistBiomesConfig.mistDesertEnabled) {
+            initBiome(MISTDESERT, "MistDesert", BiomeType.DESERT, Type.DEAD, Type.DRY, Type.SANDY);
+        }
+        if (MistBiomesConfig.coldMistTaigaEnabled) {
+            initBiome(COLDMISTTAIGA, "ColdMistTaiga", BiomeType.ICY, Type.COLD, Type.FOREST, Type.SNOWY);
+        }
+        if (MistBiomesConfig.mistySwamplandsEnabled) {
+            initBiome(MISTSWAMPLAND, "MistSwamp", BiomeType.WARM, Type.DEAD, Type.CONIFEROUS, Type.LUSH, Type.SWAMP, Type.SPOOKY);
+        }
     }
 
     private static Biome initBiome(Biome biome, String name, BiomeType biomeType, Type... types) {
@@ -35,5 +48,4 @@ public class InitBiomes {
         BiomeManager.addSpawnBiome(biome);
         return biome;
     }
-
 }

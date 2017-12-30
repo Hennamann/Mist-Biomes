@@ -1,10 +1,12 @@
 package com.henrikstabell.mistbiomes.content.biomes;
 
+import com.henrikstabell.mistbiomes.client.config.MistBiomesConfig;
 import com.henrikstabell.mistcore.api.IBiomeMist;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntitySlime;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -24,7 +26,7 @@ public class BiomeMistSwamp extends Biome implements IBiomeMist {
     public BiomeMistSwamp() {
         super(new BiomeProperties("Misty Swampland").setBaseHeight(-0.2F).setHeightVariation(0.1F).setTemperature(0.8F).setRainfall(0.9F).setWaterColor(14745518));
         this.decorator.treesPerChunk = 2;
-        this.decorator.flowersPerChunk = 1;
+        this.decorator.flowersPerChunk = 0;
         this.decorator.deadBushPerChunk = 1;
         this.decorator.mushroomsPerChunk = 8;
         this.decorator.reedsPerChunk = 10;
@@ -34,6 +36,7 @@ public class BiomeMistSwamp extends Biome implements IBiomeMist {
         this.decorator.gravelPatchesPerChunk = 0;
         this.decorator.grassPerChunk = 5;
         this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntitySlime.class, 1, 1, 1));
+        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityZombie.class, 20, 8, 16));
     }
 
     public WorldGenAbstractTree getRandomTreeFeature(Random rand)
@@ -103,14 +106,8 @@ public class BiomeMistSwamp extends Biome implements IBiomeMist {
     }
 
     @Override
-    public void addDefaultFlowers()
-    {
-        addFlower(Blocks.RED_FLOWER.getDefaultState().withProperty(Blocks.RED_FLOWER.getTypeProperty(), BlockFlower.EnumFlowerType.BLUE_ORCHID), 10);
-    }
-
-    @Override
     public float getMistDensity(int i, int i1, int i2) {
-        return 0.1F;
+        return MistBiomesConfig.mistDensity;
     }
 
     @Override

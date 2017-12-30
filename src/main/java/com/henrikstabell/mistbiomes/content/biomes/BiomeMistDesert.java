@@ -1,5 +1,6 @@
 package com.henrikstabell.mistbiomes.content.biomes;
 
+import com.henrikstabell.mistbiomes.client.config.MistBiomesConfig;
 import com.henrikstabell.mistcore.api.IBiomeMist;
 import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.monster.EntityZombie;
@@ -26,6 +27,7 @@ public class BiomeMistDesert extends Biome implements IBiomeMist {
         this.decorator.deadBushPerChunk = 2;
         this.decorator.reedsPerChunk = 50;
         this.decorator.cactiPerChunk = 10;
+        this.decorator.flowersPerChunk = 0;
         this.spawnableCreatureList.clear();
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityRabbit.class, 4, 2, 3));
         Iterator<SpawnListEntry> iterator = this.spawnableMonsterList.iterator();
@@ -67,7 +69,7 @@ public class BiomeMistDesert extends Biome implements IBiomeMist {
 
     @Override
     public float getMistDensity(int i, int i1, int i2) {
-        return 0.1F;
+        return MistBiomesConfig.mistDensity;
     }
 
     @Override

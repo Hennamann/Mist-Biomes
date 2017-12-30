@@ -14,12 +14,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class MistBiomes
 {
     public static final String MODID = "mistbiomes";
-    public static final String VERSION = "1.0";
-
+    public static final String VERSION = "1.0.0";
 
     @EventHandler
-    public void preInit(FMLPreInitializationEvent preEvent) {
-    }
+    public void preInit(FMLPreInitializationEvent preEvent) {}
 
     @EventHandler
     public void init(FMLInitializationEvent event) {

@@ -1,5 +1,6 @@
 package com.henrikstabell.mistbiomes.content.biomes;
 
+import com.henrikstabell.mistbiomes.client.config.MistBiomesConfig;
 import com.henrikstabell.mistcore.api.IBiomeMist;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockTallGrass;
@@ -61,7 +62,7 @@ public class BiomeMistTaiga extends Biome implements IBiomeMist {
 
     @Override
     public float getMistDensity(int i, int i1, int i2) {
-        return 0.1F;
+        return MistBiomesConfig.mistDensity;
     }
 
     @Override
