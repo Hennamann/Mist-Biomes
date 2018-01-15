@@ -12,7 +12,7 @@ apply plugin: 'maven-publish'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "1.0.1"
+version = "1.0.1" + System.getenv('buildNumber')
 group = "com.henrikstabell.mistbiomes" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "mistbiomes-1.12"
 
@@ -32,7 +32,7 @@ minecraft {
     // Use non-default mappings at your own risk. they may not always work.
     // simply re-run your setup task after changing the mappings to update your workspace.
     mappings = "snapshot_20171003"
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+    makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
 repositories {
@@ -67,7 +67,17 @@ dependencies {
     dependencies {
         deobfProvided "com.henrikstabell.mistcore:MistCore-1.12:1.1.1-67:dev"
     }
+}
 
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+        resources {
+            srcDir 'resources'
+        }
+    }
 }
 
 processResources {
@@ -136,18 +146,12 @@ publishing {
     repositories {
             maven { 
                 credentials {
-                    if (project.hasProperty('mavenUser')) {
-                        username mavenUser
+                        username System.getenv('userMaven')
+                        password System.getenv('passMaven')
                     }
-                    if (project.hasProperty('mavenPass')) {
-                        password mavenPass
-                    }
-                    }
-                if (project.hasProperty('mavenURL')) {
-                    url mavenURL
-                }
+                    url System.getenv('urlMaven')
             }
-        }
+       }
 }
 
 artifacts {
