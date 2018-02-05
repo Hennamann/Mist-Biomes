@@ -76,4 +76,9 @@ public class BiomeMistDesert extends Biome implements IBiomeMist {
     public int getMistColour(int i, int i1, int i2) {
         return 16777215;
     }
+
+    @Override
+    public int getMistMultiplier(int i) {
+        return 120;
+    }
 }

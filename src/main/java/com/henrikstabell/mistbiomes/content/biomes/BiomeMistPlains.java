@@ -28,6 +28,14 @@ public class BiomeMistPlains extends Biome implements IBiomeMist {
         return (WorldGenAbstractTree)(rand.nextInt(3) == 0 ? BIG_TREE_FEATURE : TREE_FEATURE);
     }
 
+    public int getModdedBiomeGrassColor(int original) {
+        return 1604134;
+    }
+
+    public int getModdedBiomeFoliageColor(int original) {
+        return 877336;
+    }
+
     @Override
     public float getMistDensity(int i, int i1, int i2) {
         return MistBiomesConfig.mistDensity;
@@ -36,5 +44,10 @@ public class BiomeMistPlains extends Biome implements IBiomeMist {
     @Override
     public int getMistColour(int i, int i1, int i2) {
         return 16777215;
+    }
+
+    @Override
+    public int getMistMultiplier(int i) {
+        return 110;
     }
 }

@@ -12,7 +12,7 @@ apply plugin: 'maven-publish'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "1.0.1-" + System.getenv('buildNumber')
+version = "1.0.2-" + System.getenv('buildNumber')
 group = "com.henrikstabell.mistbiomes" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "mistbiomes-1.12"
 
@@ -22,7 +22,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.1.2582"
+    version = "1.12.2-14.23.2.2611"
     runDir = "run"
     
     useDepAts = true

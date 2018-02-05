@@ -31,6 +31,14 @@ public class BiomeMistTaiga extends Biome implements IBiomeMist {
         return (WorldGenAbstractTree)(rand.nextInt(3) == 0 ? PINE_GENERATOR : SPRUCE_GENERATOR);
     }
 
+    public int getModdedBiomeGrassColor(int original) {
+        return 1604134;
+    }
+
+    public int getModdedBiomeFoliageColor(int original) {
+        return 877336;
+    }
+
     /**
      * Gets a WorldGen appropriate for this biome.
      */
@@ -68,5 +76,10 @@ public class BiomeMistTaiga extends Biome implements IBiomeMist {
     @Override
     public int getMistColour(int i, int i1, int i2) {
         return 16777215;
+    }
+
+    @Override
+    public int getMistMultiplier(int i) {
+        return 20;
     }
 }
