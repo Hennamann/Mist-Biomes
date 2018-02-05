@@ -65,7 +65,7 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
     dependencies {
-        deobfProvided "com.henrikstabell.mistcore:MistCore-1.12:1.1.1-67:dev"
+        deobfProvided "com.henrikstabell.mistcore:MistCore-1.12:1.2.2-18:dev"
     }
 }
 
