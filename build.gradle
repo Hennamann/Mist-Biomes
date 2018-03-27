@@ -22,7 +22,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.2.2611"
+    version = "1.12.2-14.23.2.2623"
     runDir = "run"
     
     useDepAts = true
@@ -65,7 +65,7 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
     dependencies {
-        deobfProvided "com.henrikstabell.mistcore:MistCore-1.12:1.2.2-18:dev"
+        deobfProvided "com.henrikstabell.mistcore:MistCore-1.12:1.2.2-28:dev"
     }
 }
 
