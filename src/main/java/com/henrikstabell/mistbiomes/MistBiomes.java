@@ -1,30 +1,41 @@
 package com.henrikstabell.mistbiomes;
 
-import com.henrikstabell.mistbiomes.init.InitBiomes;
-import net.minecraft.init.Biomes;
-import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.BiomeManager;
+import com.henrikstabell.mistbiomes.biomes.MistBiomesInitializer;
+import com.henrikstabell.mistbiomes.biomes.MistBiomesProvider;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import terrablender.api.BiomeProviders;
 
-@Mod(modid = MistBiomes.MODID, version = MistBiomes.VERSION, dependencies = "required-after:mistcore")
-public class MistBiomes
-{
+@Mod(MistBiomes.MODID)
+public class MistBiomes {
+
     public static final String MODID = "mistbiomes";
-    public static final String VERSION = "1.0.2";
 
-    @EventHandler
-    public void preInit(FMLPreInitializationEvent preEvent) {}
-
-    @EventHandler
-    public void init(FMLInitializationEvent event) {
-        InitBiomes.registerBiomes();
-        InitBiomes.addBiomes();
+    public MistBiomes() {
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
     }
 
-    @EventHandler
-    public void postInit(FMLPostInitializationEvent postEvent) {}
+    private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() ->
+                BiomeProviders.register(new MistBiomesProvider(new ResourceLocation(MODID, "biome_provider"), 2)));
+    }
+
+    private void enqueueIMC(final InterModEnqueueEvent event) {
+        if (ModList.get().isLoaded("fogtweaker")) {
+            InterModComms.sendTo("fogtweaker", "biome_override", MistBiomesInitializer.MIST_FOREST::location);
+            InterModComms.sendTo("fogtweaker", "biome_override", MistBiomesInitializer.MIST_BIRCH_FOREST::location);
+            InterModComms.sendTo("fogtweaker", "biome_override", MistBiomesInitializer.MIST_PLAINS::location);
+            InterModComms.sendTo("fogtweaker", "biome_override", MistBiomesInitializer.SNOWY_MIST_PLAINS::location);
+            InterModComms.sendTo("fogtweaker", "biome_override", MistBiomesInitializer.MIST_DESERT::location);
+            InterModComms.sendTo("fogtweaker", "biome_override", MistBiomesInitializer.MIST_SWAMP::location);
+            InterModComms.sendTo("fogtweaker", "biome_override", MistBiomesInitializer.MIST_TAIGA::location);
+            InterModComms.sendTo("fogtweaker", "biome_override", MistBiomesInitializer.SNOWY_MIST_TAIGA::location);
+        }
+    }
 }
