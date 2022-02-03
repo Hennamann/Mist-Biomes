@@ -17,8 +17,7 @@ public class MistBiomesInitializer {
     public static final ResourceKey<Biome> MIST_TAIGA = register("mist_taiga");
     public static final ResourceKey<Biome> SNOWY_MIST_TAIGA = register("snowy_mist_taiga");
 
-    private static ResourceKey<Biome> register(String name)
-    {
+    private static ResourceKey<Biome> register(String name) {
         return ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(MistBiomes.MODID, name));
     }
 }
