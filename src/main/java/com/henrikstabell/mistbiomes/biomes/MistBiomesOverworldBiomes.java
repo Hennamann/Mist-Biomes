@@ -1,8 +1,13 @@
 package com.henrikstabell.mistbiomes.biomes;
 
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
-import net.minecraft.data.worldgen.placement.AquaticPlacements;
+import net.minecraft.data.worldgen.Carvers;
+import net.minecraft.data.worldgen.biome.OverworldBiomes;
+import net.minecraft.data.worldgen.placement.*;
 import net.minecraft.sounds.Music;
+import net.minecraft.sounds.Musics;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -125,5 +130,36 @@ public class MistBiomesOverworldBiomes {
         BiomeDefaultFeatures.addTaigaTrees(biomegenerationsettings$builder);
 
         return biome(snowy ? Biome.Precipitation.SNOW : Biome.Precipitation.RAIN, Biome.BiomeCategory.TAIGA, f, snowy ? 0.4F : 0.8F, snowy ? 4020182 : 4159204, 329011, mobspawnsettings$builder, biomegenerationsettings$builder, NORMAL_MUSIC);
+    }
+
+    public static Biome mistDarkForest() {
+        MobSpawnSettings.Builder mobspawnsettings$builder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.monsters(mobspawnsettings$builder, 100, 25, 100, false);
+        BiomeGenerationSettings.Builder biomegenerationsettings$builder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(biomegenerationsettings$builder);
+        biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.DARK_FOREST_VEGETATION);
+        BiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
+        BiomeDefaultFeatures.addDefaultMushrooms(biomegenerationsettings$builder);
+        BiomeDefaultFeatures.addDefaultExtraVegetation(biomegenerationsettings$builder);
+        return (new Biome.BiomeBuilder()).precipitation(Biome.Precipitation.RAIN).biomeCategory(Biome.BiomeCategory.FOREST).temperature(0.7F).downfall(0.8F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(0.7F)).grassColorModifier(BiomeSpecialEffects.GrassColorModifier.DARK_FOREST).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(mobspawnsettings$builder.build()).generationSettings(biomegenerationsettings$builder.build()).build();
+    }
+
+    public static Biome mistBadlands(boolean wooded) {
+        MobSpawnSettings.Builder mobspawnsettings$builder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.monsters(mobspawnsettings$builder, 100, 25, 100, false);
+        BiomeGenerationSettings.Builder biomegenerationsettings$builder = new BiomeGenerationSettings.Builder();
+        globalOverworldGeneration(biomegenerationsettings$builder);
+        BiomeDefaultFeatures.addDefaultOres(biomegenerationsettings$builder);
+        BiomeDefaultFeatures.addExtraGold(biomegenerationsettings$builder);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomegenerationsettings$builder);
+        if (wooded) {
+            BiomeDefaultFeatures.addBadlandsTrees(biomegenerationsettings$builder);
+        }
+
+        BiomeDefaultFeatures.addBadlandGrass(biomegenerationsettings$builder);
+        BiomeDefaultFeatures.addDefaultMushrooms(biomegenerationsettings$builder);
+        BiomeDefaultFeatures.addBadlandExtraVegetation(biomegenerationsettings$builder);
+        return (new Biome.BiomeBuilder()).precipitation(Biome.Precipitation.NONE).biomeCategory(Biome.BiomeCategory.MESA).temperature(2.0F).downfall(0.0F).specialEffects((new BiomeSpecialEffects.Builder()).waterColor(4159204).waterFogColor(329011).fogColor(12638463).skyColor(calculateSkyColor(2.0F)).foliageColorOverride(10387789).grassColorOverride(9470285).ambientMoodSound(AmbientMoodSettings.LEGACY_CAVE_SETTINGS).build()).mobSpawnSettings(mobspawnsettings$builder.build()).generationSettings(biomegenerationsettings$builder.build()).build();
     }
 }

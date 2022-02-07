@@ -21,7 +21,7 @@ if (localFile.exists()) {
     ext.local = parseConfig(localFile)
 }
 
-version = "1.0.2"
+version = config.version
 group = "com.henrikstabell.mistbiomes" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "mistbiomes-1.18.1"
 

@@ -8,14 +8,18 @@ import net.minecraft.world.level.biome.Biome;
 
 public class MistBiomesInitializer {
 
+    // Overworld
     public static final ResourceKey<Biome> MIST_FOREST = register("mist_forest");
     public static final ResourceKey<Biome> MIST_BIRCH_FOREST = register("mist_birch_forest");
+    public static final ResourceKey<Biome> MIST_DARK_FOREST = register("mist_dark_forest");
     public static final ResourceKey<Biome> MIST_DESERT = register("mist_desert");
     public static final ResourceKey<Biome> MIST_PLAINS = register("mist_plains");
     public static final ResourceKey<Biome> SNOWY_MIST_PLAINS = register("snowy_mist_plains");
     public static final ResourceKey<Biome> MIST_SWAMP = register("mist_swamp");
     public static final ResourceKey<Biome> MIST_TAIGA = register("mist_taiga");
     public static final ResourceKey<Biome> SNOWY_MIST_TAIGA = register("snowy_mist_taiga");
+    public static final ResourceKey<Biome> MIST_BADLANDS = register("mist_badlands");
+    public static final ResourceKey<Biome> WOODED_MIST_BADLANDS = register("wooded_mist_badlands");
 
     private static ResourceKey<Biome> register(String name) {
         return ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(MistBiomes.MODID, name));

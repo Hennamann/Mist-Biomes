@@ -1,10 +1,24 @@
 {
   "biome.mistbiomes.mist_forest": "Misty Forest",
   "biome.mistbiomes.mist_birch_forest": "Misty Birch Forest",
+  "biome.mistbiomes.mist_dark_forest": "Misty Dark Forest",
   "biome.mistbiomes.mist_desert": "Misty Desert",
   "biome.mistbiomes.mist_plains": "Misty Plains",
   "biome.mistbiomes.snowy_mist_plains": "Snowy Misty Plains",
   "biome.mistbiomes.mist_swamp": "Misty Swamp",
   "biome.mistbiomes.mist_taiga": "Misty Taiga",
-  "biome.mistbiomes.snowy_mist_taiga": "Snowy Misty Taiga"
+  "biome.mistbiomes.snowy_mist_taiga": "Snowy Misty Taiga",
+  "biome.mistbiomes.mist_badlands": "Misty Badlands",
+  "biome.mistbiomes.wooded_mist_badlands": "Wooded Misty Badlands",
+  "config.common.mistbiomes.mistForestEnabled": "Misty Forest Biome Enabled?",
+  "config.common.mistbiomes.mistBirchForestEnabled": "Misty Birch Forest Biome Enabled?",
+  "config.common.mistbiomes.mistDarkForestEnabled": "Misty Dark Forest Biome Enabled?",
+  "config.common.mistbiomes.mistDesertEnabled": "Misty Desert Biome Enabled?",
+  "config.common.mistbiomes.mistPlainsEnabled": "Misty Plains Biome Enabled?",
+  "config.common.mistbiomes.mistSnowyPlainsEnabled": "Snowy Misty Plains Biome Enabled?",
+  "config.common.mistbiomes.mistSwampEnabled": "Misty Swamp Biome Enabled?",
+  "config.common.mistbiomes.mistTaigaEnabled": "Misty Taiga Biome Enabled?",
+  "config.common.mistbiomes.mistSnowyTaigaEnabled": "Snowy Misty Taiga Biome Enabled?",
+  "config.common.mistbiomes.mistBadlandsEnabled": "Misty Badlands Biome Enabled?",
+  "config.common.mistbiomes.mistWoodedBadlandsEnabled": "Misty Wooded Badlands Biome Enabled?"
 }
